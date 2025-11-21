@@ -1,0 +1,9 @@
+/* src/pages/Logs/Logs.css */
+.log-form { display:flex; gap:8px; align-items:center; margin-bottom:12px; }
+.log-form input { padding:8px; border-radius:6px; border:1px solid #ddd; }
+.log-list { display:flex; flex-direction:column; gap:10px; }
+.log-row { padding:10px; border-radius:6px; background:#fff; border:1px solid #eee; }
+.log-meta { display:flex; justify-content:space-between; margin-bottom:6px; font-weight:600; }
+.log-action { color:#333; }
+.log-time { color:#777; font-size:0.9rem; }
+.log-details { color:#444; }

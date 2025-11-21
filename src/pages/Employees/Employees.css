@@ -1,0 +1,6 @@
+/* src/pages/Employees/Employees.css */
+.emp-form { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.emp-form input { padding:8px; border-radius:6px; border:1px solid #ddd; min-width:180px; }
+.emp-form button { padding:10px 12px; border-radius:6px; border:none; background:#1975d1; color:white; cursor:pointer; }
+.emp-list { margin-top:10px; }
+.empty { color:#666; padding:12px; background:#fff; border-radius:6px; }

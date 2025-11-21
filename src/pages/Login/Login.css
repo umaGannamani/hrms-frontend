@@ -1,0 +1,19 @@
+/* src/pages/Login/Login.css */
+.auth-wrap {
+  height: calc(100vh - 60px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f5f7fb;
+}
+.auth-box {
+  width:360px;
+  padding:24px;
+  background:white;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(20,20,20,0.06);
+}
+.auth-box input { width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc; }
+.auth-box button { width:100%; padding:10px; background:#1f6feb; color:white; border:none; border-radius:6px; cursor:pointer; margin-top:8px; }
+.small-links { margin-top:10px; text-align:right; }
+.small-links a { color:#1975d1; text-decoration:none; }

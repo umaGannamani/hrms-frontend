@@ -1,0 +1,15 @@
+/* src/components/EmployeeCard/EmployeeCard.css */
+.emp-card {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px;
+  border:1px solid #e0e0e0;
+  border-radius:6px;
+  margin-bottom:8px;
+  background:white;
+}
+.emp-name { font-weight:600; }
+.emp-email { color:#666; font-size:0.9rem; }
+.btn-small { padding:6px 10px; margin-left:8px; border-radius:6px; cursor:pointer; border:none; background:#1975d1; color:white; }
+.btn-danger { background:#ff6b6b; }

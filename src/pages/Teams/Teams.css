@@ -1,0 +1,13 @@
+/* src/pages/Teams/Teams.css */
+.team-form { display:flex; gap:8px; align-items:center; margin-bottom:16px; }
+.team-form input { padding:8px; border-radius:6px; border:1px solid #ddd; min-width:240px; }
+.team-list { display:flex; flex-direction:column; gap:12px; }
+.team-card { padding:12px; border:1px solid #e8e8e8; border-radius:8px; background:white; }
+.team-head { display:flex; justify-content:space-between; align-items:center; }
+.team-name { font-weight:700; }
+.members { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.member { padding:6px 8px; background:#f1f5fb; border-radius:6px; display:flex; gap:8px; align-items:center; }
+.btn-small { padding:6px 8px; border-radius:6px; border:none; background:#1975d1; color:white; cursor:pointer; margin-left:8px; }
+.btn-danger { background:#ff6b6b; color:white; border:none; padding:6px 8px; border-radius:6px; cursor:pointer; }
+.muted { color:#777; }
+.assign-row { margin-top:10px; display:flex; gap:8px; align-items:center; }
