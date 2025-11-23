@@ -1,70 +1,165 @@
-# Getting Started with Create React App
+📘 HRMS – Employees, Teams & Logs Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack HR Management System built using:
 
-## Available Scripts
+Frontend: React.js
 
-In the project directory, you can run:
+Backend: Node.js + Express
 
-### `npm start`
+Database: SQLite (Sequelize ORM)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Auth: JWT Authentication
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Features: Employees CRUD, Teams CRUD, Assign/Unassign team members, Logs tracking
+🚀 Features
+✅ Employees Module
+Add employee
+Update employee
+Delete employee
+View all employees
+Automatically generate log entry
 
-### `npm test`
+✅ Teams Module
+Create team
+Update team
+Delete team
+View all teams
+Assign employee to team
+Unassign employee from team
+Logs every action
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✅ Logs Module
+Track actions (create, update, delete, assign, unassign)
+Shows who did what and when
+Stored in Logs table in SQLite
+Protected using JWT
+Supports delete logs (admin)
 
-### `npm run build`
+🔐 Authentication
+User login returns JWT token
+Protected routes require Authorization: Bearer <token>
+Token stores:
+userId
+orgId
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📁 Project Structure
+backend/
+│── controllers/
+│   ├── EmployeeController.js
+│   ├── TeamController.js
+│   ├── LogController.js
+│── middleware/
+│   ├── authMiddleware.js
+│── models/
+│   ├── Employees.js
+│   ├── Teams.js
+│   ├── Users.js
+│   ├── Organisations.js
+│   ├── EmployeeTeams.js
+│   ├── Logs.js
+│── routes/
+│   ├── employeeRoutes.js
+│   ├── teamRoutes.js
+│   ├── logRoutes.js
+│── server.js
+│── database.sqlite
+│── .env
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+frontend/
+│── src/
+│   ├── api.js
+│   ├── pages/
+│   │   ├── Employees.js
+│   │   ├── Teams.js
+│   │   ├── Logs.js
+│   ├── components/
+│── package.json
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+🛠 Backend API Documentation
+🔹 Employees API
+Method	Endpoint	Description
+GET	/api/employees	Get all employees for organisation
+GET	/api/employees/:id	Get employee by ID
+POST	/api/employees	Create employee
+PUT	/api/employees/:id	Update employee
+DELETE	/api/employees/:id	Delete employee
+🔹 Teams API
+Method	Endpoint	Description
+GET	/api/teams	Get all teams
+POST	/api/teams	Create new team
+PUT	/api/teams/:id	Update team
+DELETE	/api/teams/:id	Delete team
+🔹 Team Assignment API
+Method	Endpoint	Description
+POST	/api/teams/:teamId/assign	Assign a user or multiple users
+DELETE	/api/teams/:teamId/unassign	Unassign from team
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Example body (single):
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+{
+  "employeeId": 5
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Example body (batch):
 
-## Learn More
+{
+  "employeeIds": [1, 2, 3]
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🔹 Logs API
+Method	Endpoint	Description
+GET	/api/logs	Get all logs
+DELETE	/api/logs/:id	Delete a log
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Log format example:
 
-### Code Splitting
+{
+  "userId": 1,
+  "orgId": 1,
+  "action": "employee_created",
+  "details": "Employee John Doe was created",
+  "severity": "info"
+}
+▶️ Running the Backend
+1. Install dependencies
+cd backend
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Configure .env
+JWT_SECRET=your_secret_key
+PORT=5000
 
-### Analyzing the Bundle Size
+3. Start Backend
+node server.js
+💻 Running the Frontend
+1. Install dependencies
+cd frontend
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Start React App
+npm start
 
-### Making a Progressive Web App
+📌 Tech Used
+React.js (Hooks)
+Node.js + Express.js
+SQLite (Sequelize ORM)
+JWT Authentication
+CORS Enabled
+REST API Architecture
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+📦 Deployment
+You can deploy to:
+Render (backend) : https://backend-hrms-atq5.onrender.com
 
-### Advanced Configuration
+Vercel (frontend) : https://hrms-frontend-mu.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Set environment variables based on render panel.
+🎯 Conclusion
+This HRMS system gives:
+Clean API architecture
+Secure auth
+Full logs tracking
+Simple relational structure
+Frontend integration
