@@ -7,3 +7,24 @@
 .log-action { color:#333; }
 .log-time { color:#777; font-size:0.9rem; }
 .log-details { color:#444; }
+.sev {
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.sev-INFO {
+  background: #d9f7be;
+  color: #095c00;
+}
+
+.sev-WARNING {
+  background: #fff7a8;
+  color: #a68b00;
+}
+
+.sev-ERROR {
+  background: #ffd6d6;
+  color: #a10000;
+}

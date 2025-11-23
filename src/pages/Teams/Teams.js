@@ -32,16 +32,19 @@ export default function Teams() {
   }
 
   async function assign(teamId, employeeId) {
-    if (!employeeId) { alert("Select employee"); return; }
-    try {
-      await api.teams.assign({ teamId, employeeId: Number(employeeId) });
-      await load();
-    } catch (err) { alert(err.message || "Assign failed"); }
+  if (!employeeId) return alert("Select employee");
+  try {
+    await api.teams.assign(teamId, Number(employeeId));
+    await load();
+  } catch (err) {
+    alert(err.message);
   }
+}
+
 
   async function unassign(teamId, employeeId) {
     try {
-      await api.teams.unassign({ teamId, employeeId });
+      await api.teams.unassign( teamId, employeeId );
       await load();
     } catch (err) { alert(err.message || "Unassign failed"); }
   }

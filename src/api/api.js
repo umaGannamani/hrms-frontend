@@ -1,5 +1,5 @@
 // src/api/api.js
-export const API_BASE = "http://localhost:5000";
+export const API_BASE = "https://backend-hrms-atq5.onrender.com";
 
 async function request(path, { method = "GET", body = null, auth = true } = {}) {
   const headers = { "Content-Type": "application/json" };
@@ -40,13 +40,25 @@ export const api = {
     remove: (id) => request(`/employees/${id}`, { method: "DELETE" }),
   },
   teams: {
-    list: () => request("/teams", { method: "GET" }),
-    create: (body) => request("/teams", { method: "POST", body }),
-    update: (id, body) => request(`/teams/${id}`, { method: "PUT", body }),
-    remove: (id) => request(`/teams/${id}`, { method: "DELETE" }),
-    assign: (payload) => request("/teams/assign", { method: "POST", body: payload }),
-    unassign: (payload) => request("/teams/unassign", { method: "POST", body: payload }),
+  list: () => request("/teams", { method: "GET" }),
+  create: (body) => request("/teams", { method: "POST", body }),
+  update: (id, body) => request(`/teams/${id}`, { method: "PUT", body }),
+  remove: (id) => request(`/teams/${id}`, { method: "DELETE" }),
+
+  // FIXED ASSIGN & UNASSIGN ROUTES
+  assign: (teamId, employeeId) =>
+    request(`/teams/${teamId}/assign`, {
+      method: "POST",
+      body: { employeeId }
+    }),
+
+  unassign: (teamId, employeeId) =>
+    request(`/teams/${teamId}/unassign`, {
+      method: "DELETE",
+      body: { employeeId }
+    }),
 },
+
 
   logs: {
     list: () => request("/logs", { method: "GET" }),
